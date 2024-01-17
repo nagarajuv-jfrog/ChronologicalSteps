@@ -1,0 +1,24 @@
+resources:
+  - name: {{ .Values.namePrefix }}_bag
+    type: PropertyBag
+    configuration:
+      releaseVersion: ""
+      
+
+pipelines:
+  - name: testing_world
+    steps:
+      - name: first
+        type: Bash
+        execution:
+          onExecute:
+            - echo "hello"
+      - name: second
+        type: Bash
+        configuration:
+          chronological: true
+          inputSteps:
+            - name: first    
+        execution:
+          onExecute:
+            - echo "Hello World"
