@@ -1,10 +1,3 @@
-resources:
-  - name: {{ .Values.namePrefix }}_bag
-    type: PropertyBag
-    configuration:
-      releaseVersion: ""
-      
-
 pipelines:
   - name: testing_world
     steps:
